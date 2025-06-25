@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima - Consulta el Tiempo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+            {% if weather and weather.description %}
+                {% if 'despejado' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #f5f7fa, #b3d4fc); /* Soleado */
+                {% elif 'nub' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #d3d8e8, #8798ad); /* Nublado */
+                {% elif 'lluv' in weather.description.lower() or 'chubasco' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #5b7386, #2e4053); /* Lluvia */
+                {% elif 'nieve' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #e6e9ef, #b0bec5); /* Nieve */
+                {% else %}
+                    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default */
+                {% endif %}
+            {% else %}
+                background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default */
+            {% endif %}
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con transparencia */
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #d1d5db; /* Borde gris claro */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        h1 {
+            font-family: 'Lato', sans-serif;
+            color: #ffffff; /* Blanco puro para títulos */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px; /* Reducido el padding vertical */
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem; /* Tamaño de fuente ligeramente menor */
+            line-height: 1.4; /* Ajuste para centrar el texto */
+            background-color: #334155; /* Fondo gris oscuro */
+            color: #ffffff; /* Texto blanco */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="text"]::placeholder {
+            color: #94a3b8; /* Placeholder gris claro */
+        }
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(209, 213, 219, 0.5); /* Sombra gris claro */
+        }
+        button {
+            padding: 15px 25px;
+            background-color: #1e293b; /* Negro claro */
+            color: #ffffff; /* Texto blanco */
+            border: 2px solid #d1d5db; /* Borde gris claro */
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #475569; /* Gris medio para hover */
+            transform: translateY(-2px);
+        }
+        .error {
+            color: #ffffff; /* Texto blanco */
+            font-size: 0.9rem;
+            margin: 10px 0;
+            background-color: #7f1d1d; /* Fondo rojo oscuro */
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .weather-info {
+            background-color: #1e293b; /* Negro claro */
+            padding: 25px;
+            дум
+
+System: It seems the artifact content was cut off again. I'll complete the code with the requested changes to the input field size and ensure it aligns with your previous requirements (dark mode, Lato for titles, Open Sans for other text, gray borders `#d1d5db`). The issue appears to be with the `.weather-info` section, so I'll include the full code to ensure completeness.
+
+### Código actualizado:
+<xaiArtifact artifact_id="fadcd94b-5094-4608-843a-fdba83012b1b" artifact_version_id="cac5092d-d6cc-4d5f-ba3f-593cb8df9e75" title="index.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima - Consulta el Tiempo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.5s ease;
+            {% if weather and weather.description %}
+                {% if 'despejado' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #f5f7fa, #b3d4fc); /* Soleado */
+                {% elif 'nub' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #d3d8e8, #8798ad); /* Nublado */
+                {% elif 'lluv' in weather.description.lower() or 'chubasco' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #5b7386, #2e4053); /* Lluvia */
+                {% elif 'nieve' in weather.description.lower() %}
+                    background: linear-gradient(135deg, #e6e9ef, #b0bec5); /* Nieve */
+                {% else %}
+                    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default */
+                {% endif %}
+            {% else %}
+                background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Default */
+            {% endif %}
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.9); /* Fondo negro con transparencia */
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #d1d5db; /* Borde gris claro */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        h1 {
+            font-family: 'Lato', sans-serif;
+            color: #ffffff; /* Blanco puro para títulos */
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 15px; /* Reducido el padding vertical */
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem; /* Tamaño de fuente ligeramente menor */
+            line-height: 1.4; /* Ajuste para centrar el texto */
+            background-color: #334155; /* Fondo gris oscuro */
+            color: #ffffff; /* Texto blanco */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        input[type="text"]::placeholder {
+            color: #94a3b8; /* Placeholder gris claro */
+        }
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(ਮ
+
+System: 209, 213, 219, 0.5); /* Sombra gris claro */
+        }
+        button {
+            padding: 15px 25px;
+            background-color: #1e293b; /* Negro claro */
+            color: #ffffff; /* Texto blanco */
+            border: 2px solid #d1d5db; /* Borde gris claro */
+            border-radius: 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #475569; /* Gris medio para hover */
+            transform: translateY(-2px);
+        }
+        .error {
+            color: #ffffff; /* Texto blanco */
+            font-size: 0.9rem;
+            margin: 10px 0;
+            background-color: #7f1d1d; /* Fondo rojo oscuro */
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .weather-info {
+            background-color: #1e293b; /* Negro claro */
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #d1d5db; /* Borde gris claro */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+        }
+        .weather-info h2 {
+            font-family: 'Lato', sans-serif;
+            color: #ffffff; /* Blanco puro para títulos */
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .weather-info p {
+            font-size: 1.1rem;
+            color: #ffffff; /* Texto blanco */
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-start;
+        }
+        .weather-icon {
+            width: 120px;
+            height: 120px;
+            margin: 15px auto;
+            display: block;
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.2));
+        }
+        .weather-detail {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            color: #d1d5db; /* Gris claro para detalles */
+        }
+        .weather-detail::before {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-size: cover;
+            filter: invert(100%); /* Íconos blancos */
+        }
+        .location::before { background-image: url('https://img.icons8.com/ios-filled/50/marker.png'); }
+        .temperature::before { background-image: url('https://img.icons8.com/ios-filled/50/thermometer.png'); }
+        .feels-like::before { background-image: url('https://img.icons8.com/ios-filled/50/temperature.png'); }
+        .humidity::before { background-image: url('https://img.icons8.com/ios-filled/50/humidity.png'); }
+        .description::before { background-image: url('https://img.icons8.com/ios-filled/50/cloud.png'); }
+        .sunrise::before { background-image: url('https://img.icons8.com/ios-filled/50/sunrise.png'); }
+        .sunset::before { background-image: url('https://img.icons8.com/ios-filled/50/sunset.png'); }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            form {
+                flex-direction: column;
+            }
+            input[type="text"], button {
+                width: 100%;
+            }
+            .weather-icon {
+                width: 100px;
+                height: 100px;
+            }
+            .weather-info {
+                padding: 20px;
+            }
+            .weather-info h2 {
+                font-size: 1.6rem;
+            }
+            .weather-info p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta el Clima</h1>
+        <form method="POST">
+            <input type="text" name="city" placeholder="Ingrese ciudad (ej. San Miguel, Buenos Aires)" value="{{ city or '' }}">
+            <button type="submit">Buscar</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        {% if weather and not error %}
+            <div class="weather-info">
+                <h2>Clima en {{ weather.city }}</h2>
+                <p class="weather-detail location"><strong>Ubicación:</strong> {{ weather.city }}{% if weather.region %}, {{ weather.region }}{% endif %}, {{ weather.country }}</p>
+                {% if weather.description %}
+                    <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Icono del clima">
+                {% endif %}
+                <p class="weather-detail temperature"><strong>Temperatura:</strong> {{ weather.temperature_celcius }} °C / {{ weather.temperature_fahrenheit }} °F</p>
+                <p class="weather-detail feels-like"><strong>Sensación térmica:</strong> {{ weather.feels_like_celcius }} °C / {{ weather.feels_like_fahrenheit }} °F</p>
+                <p class="weather-detail humidity"><strong>Humedad:</strong> {{ weather.humidity }}%</p>
+                <p class="weather-detail description"><strong>Descripción:</strong> {{ weather.description }}</p>
+                <p class="weather-detail sunrise"><strong>Amanecer:</strong> {{ weather.sunrise }}</p>
+                <p class="weather-detail sunset"><strong>Atardecer:</strong> {{ weather.sunset }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
