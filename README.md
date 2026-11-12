@@ -1,94 +1,92 @@
 # Weather App
 
-## Descripción
-Weather App es una aplicación web que permite a los usuarios consultar el clima actual de cualquier ciudad utilizando la API de OpenWeatherMap. La interfaz está diseñada con una estética moderna tipo **dark mode**, con un fondo dinámico que cambia según las condiciones climáticas (soleado, nublado, lluvia, nieve, etc.).
+Aplicación web desarrollada con **Python y Flask** que permite consultar las condiciones meteorológicas de una ciudad utilizando las API de **OpenWeatherMap**.
+
+La búsqueda admite ciudad y, opcionalmente, región y país para precisar la ubicación.
 
 ## Características
-- **Consulta del clima**: Ingresa el nombre de una ciudad para obtener información detallada, incluyendo temperatura, sensación térmica, humedad, descripción del clima, amanecer y atardecer.
-- **Fondo dinámico**: El fondo de la página cambia según las condiciones climáticas:
-  - Soleado: Gradiente claro (#f5f7fa a #b3d4fc).
-  - Nublado: Gradiente gris (#d3d8e8 a #8798ad).
-  - Lluvia/Chubasco: Gradiente oscuro (#5b7386 a #2e4053).
-  - Nieve: Gradiente frío (#e6e9ef a #b0bec5).
-  - Default: Gradiente azul (#6dd5ed a #2193b0).
 
-- **Fuentes personalizadas**:
-  - Títulos (`h1`, `h2`): Lato.
-  - Texto general (input, botón, párrafos): Open Sans (400, 600).
-- **Íconos**: Íconos blancos para detalles del clima (ubicación, temperatura, etc.) usando un filtro CSS (`invert(100%)`).
-- **Traducción personalizada**: Incluye un archivo `dictionaries.py` para traducir las descripciones del clima de la API al español, mejorando la calidad de las traducciones.
+- Consulta del clima actual por ciudad.
+- Búsqueda de ubicación mediante la Geocoding API de OpenWeatherMap.
+- Visualización de temperatura en grados Celsius y Fahrenheit.
+- Visualización de sensación térmica y humedad.
+- Información de ubicación, descripción del clima, amanecer y atardecer.
+- Ícono correspondiente a las condiciones meteorológicas.
+- Traducción al español de las descripciones del clima mediante un diccionario propio.
+- Normalización de texto para comparar nombres sin distinguir mayúsculas ni tildes.
+- Fondo dinámico que cambia según las condiciones climáticas.
+- Mensajes de error ante ubicaciones no encontradas o problemas de comunicación con la API.
 
-## Tecnologías utilizadas
-- **HTML5**: Estructura de la página.
-- **CSS3**: Estilos personalizados, incluyendo transiciones, sombras y filtros.
-- **Python**: Lógica del backend para procesar solicitudes.
-- **Flask**: Framework web para servir la aplicación y manejar la API de OpenWeatherMap.
-- **OpenWeatherMap API**: Para obtener datos climáticos en tiempo real (requiere una clave API).
+## Tecnologías y herramientas
 
-## Instalación
-1. Clona el repositorio:
+- Python.
+- Flask.
+- Requests.
+- HTML5 y CSS3.
+- OpenWeatherMap Geocoding API.
+- OpenWeatherMap Current Weather API.
+- Google Fonts: Lato y Open Sans.
+
+## Instalación y ejecución
+
+1. Clonar el repositorio:
+
    ```bash
-   git clone <URL_DEL_REPOSITORIO>
+   git clone https://github.com/juliangiardelli/Weather-app.git
+   cd Weather-app
    ```
-2. Navega al directorio del proyecto:
-   ```bash
-   cd weather-app
-   ```
-3. Crea un entorno virtual (recomendado):
-   ```bash
+
+2. Crear y activar un entorno virtual:
+
+   **Windows (PowerShell)**
+   ```powershell
    python -m venv venv
-   source venv/bin/activate  # En Windows: venv\Scripts\activate
+   .\\venv\\Scripts\\Activate.ps1
    ```
-4. Instala las dependencias desde `requirements.txt`:
+
+   **Linux / macOS**
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Instalar las dependencias:
+
    ```bash
    pip install -r requirements.txt
    ```
-5. Obtén una clave API de [OpenWeatherMap](https://openweathermap.org/api) e ingresala en el archivo app.py.
-6. Asegúrate de que el archivo `index.html` esté en el directorio `templates/` y que `dictionaries.py` esté en el directorio raíz del proyecto.
-7. Inicia el servidor Flask:
+
+4. Obtener una clave API de [OpenWeatherMap](https://openweathermap.org/api) y asignarla a la variable `API_KEY` en `app.py`. La línea debe contener una cadena válida, por ejemplo:
+
+   ```python
+   API_KEY = "TU_API_KEY"
+   ```
+
+   No publiques una clave personal en repositorios públicos.
+
+5. Iniciar la aplicación:
+
    ```bash
    python app.py
    ```
 
+6. Abrir [http://localhost:5000](http://localhost:5000) en el navegador.
+
 ## Uso
-1. Abre la aplicación en tu navegador (por ejemplo, `http://localhost:5000`).
-2. Ingresa el nombre de una ciudad en el campo de búsqueda (por ejemplo, "San Miguel, Buenos Aires").
-3. Haz clic en el botón "Buscar" para obtener los datos del clima.
-4. Si la ciudad no se encuentra, se mostrará un mensaje de error en rojo oscuro (#7f1d1d).
-5. Los resultados incluyen:
-   - Ubicación (ciudad, región, país).
-   - Icono del clima (de OpenWeatherMap).
-   - Temperatura (en °C y °F).
-   - Sensación térmica (en °C y °F).
-   - Humedad (%).
-   - Descripción del clima (traducida usando `dictionaries.py`).
-   - Horarios de amanecer y atardecer.
+
+1. Ingresar el nombre de una ciudad en el campo de búsqueda.
+2. Para precisar el resultado, se puede indicar también la región y el país, separados por comas.
+3. Presionar **Buscar** para consultar la información meteorológica.
+4. La aplicación muestra los datos disponibles o un mensaje si no encuentra una ubicación válida o se produce un error en la consulta.
 
 ## Estructura del proyecto
+
 ```
-weather-app/
+Weather-app/
 ├── templates/
-│   └── index.html    # Plantilla HTML principal
-├── app.py            # Script Flask para el backend
-├── dictionaries.py   # Archivo para traducción personalizada del clima
-├── requirements.txt  # Dependencias del proyecto
-└── README.md         # Este archivo
+│   └── index.html       # Interfaz de la aplicación
+├── app.py               # Aplicación Flask y consultas a las API
+├── dictionaries.py      # Códigos de países y traducciones meteorológicas
+├── requirements.txt     # Dependencias de Python
+└── README.md            # Documentación del proyecto
 ```
-
-## Estilo visual
-- **Paleta de colores**:
-  - Fondos: Negro con transparencia (`rgba(0, 0, 0, 0.9)`), negro claro (`#1e293b`), gris oscuro (`#334155`).
-  - Textos: Blanco puro (`#ffffff`) para títulos y párrafos, gris claro (`#d1d5db`) para detalles.
-  - Bordes y efectos: Gris claro (`#d1d5db`) para contenedores y botón.
-  - Error: Fondo rojo oscuro (`#7f1d1d`) con texto blanco.
-- **Tipografía**:
-  - Títulos: Lato.
-  - Texto general: Open Sans para legibilidad.
-- **Íconos**: Íconos blancos generados con `filter: invert(100%)` para detalles del clima.
-- **Efectos**: Sombra suave, esquinas redondeadas, y desenfoque (`backdrop-filter`).
-
-## Notas
-- **API Key**: Configura una clave válida de OpenWeatherMap en el backend para que la aplicación funcione correctamente.
-- **dictionaries.py**: Este archivo contiene la lógica para traducir las descripciones del clima de la API al español, mejorando la precisión de las traducciones.
-- **Personalización**: Puedes cambiar los colores de los bordes (actualmente `#d1d5db`) por otras gamas (por ejemplo, verde `#10b981`, violeta `#8b5cf6`, naranja `#f97316`) editando el CSS en `index.html`.
-- **Backend**: Este README asume que usas Flask como backend. Ajusta las instrucciones si usas otra tecnología.
